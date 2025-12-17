@@ -5,6 +5,7 @@ pipeline {
 		stage ('Checkout code') {
 			agent any 
 			steps {
+				deleteDir()
 				checkout scm
 			}
 		}
