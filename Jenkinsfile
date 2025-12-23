@@ -18,7 +18,7 @@ pipeline {
 			steps {
 				sh '''
 					python --version
-					pip install --user -r requirements.txt
+					pip install --user root -r requirements.txt
 				'''
 			}
 		}
