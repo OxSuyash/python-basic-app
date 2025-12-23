@@ -10,25 +10,17 @@ pipeline {
 			}
 		}
 		stage ('Install dependencies') {
-			agent {
-				docker {
-					image 'python:3.10-slim'
-				}
-			}
+			
 			steps {
 				sh '''
 					python --version
-					pip install --user root -r requirements.txt
+					pip install  -r requirements.txt
 				'''
 			}
 		}
 
 		stage ('Run tests') {
-			agent {
-				docker {
-					image 'python:3.10-slim'
-				}
-			}
+			
 			steps {
 				sh '''
 					pytest
@@ -36,11 +28,7 @@ pipeline {
 			}
 		}
 		stage ('Package app') {
-			agent {
-				docker {
-					image 'python:3.10-slim'
-				}
-			}
+			
 			steps {
 				sh '''
 					mkdir -p dist
